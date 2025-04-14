@@ -1,16 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'core/utils/app_router.dart';
 import 'core/utils/app_starter.dart';
-import 'core/utils/flutter_binding_initializer.dart';
-import 'core/utils/native_splash_creator.dart';
 
 void main() {
   initialize();
 }
 
 void initialize() {
-  FlutterBindingInitializer.init();
-  NativeSplashCreator.create();
+  WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
+  FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
   AppStarter.start();
 }
 
